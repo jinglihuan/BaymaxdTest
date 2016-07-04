@@ -3,14 +3,13 @@ var _ = require('lodash')
 var chakram = require('chakram'),
 	expect = chakram.expect
 
-var baseUrl = 'http://10.180.2.100:10000/api/v1'
+var baseUrl = 'http://101.201.197.11:8090/api/v1'
 
 describe('prebaymax api', function() {
 	it('Get list of body part', function() {
 		var resp = chakram.get(baseUrl + '/meta/body_parts')
 		expect(resp).to.have.status(200)
 		expect(resp).to.have.schema({
-			type: 'object',
 			properties: {
 				id: 'number',
 				code: 'string',
@@ -46,7 +45,7 @@ describe('prebaymax api', function() {
 	})
 
 	it('Register a person', function() {
-		var resp = chakram.post(baseUrl + '/person')
+		var resp = chakram.post(baseUrl + '/persons')
 		expect(resp).to.have.status(201)
 		return chakram.wait()
 	})
